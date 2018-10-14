@@ -22,3 +22,13 @@ assert.deepEqual(reverseSeries([0]), [0]);
 //for positive and negitive numbers
 assert.deepEqual(reverseSeries([1,2]), [2,1]);
 assert.deepEqual(reverseSeries([-1,-5,5,32]), [32,5,-5,-1]);
+
+/*---------- Test for split splitEvenOdd ----------*/
+
+//for empty array and 1 even value
+assert.deepEqual(splitEvenOdd([]),[[],[]]);
+assert.deepEqual(splitEvenOdd([2]),[[2],[]]);
+//for negetive values and all odd
+assert.deepEqual(splitEvenOdd([-1,-2,-3,-5]),[[-2],[-1,-3,-5]]);
+assert.deepEqual(splitEvenOdd([]),[[],[]]);
+
