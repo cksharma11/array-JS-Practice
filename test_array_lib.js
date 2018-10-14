@@ -5,6 +5,7 @@ const generateFibSeries = lib.generateFibSeries;
 const reverseSeries = lib.reverseSeries;
 const splitEvenOdd = lib.splitEvenOdd;
 const findSumOfNumberList = lib.findSumOfNumberList;
+const addTwoNumbers = lib.addTwoNumbers;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -41,4 +42,10 @@ assert.equal(findSumOfNumberList([-1,1]),0);
 //for >1000 values
 assert.equal(findSumOfNumberList([12,12,12]),36);
 assert.equal(findSumOfNumberList([1000,2000]),3000);
+
+/*----------- Test for addTwoNumbers ---------------*/
+
+assert.equal(addTwoNumbers(10,20), 30);
+assert.equal(addTwoNumbers(0,0),0);
+
 
