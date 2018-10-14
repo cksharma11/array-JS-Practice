@@ -4,6 +4,7 @@ const lib = require("./array_lib.js");
 const generateFibSeries = lib.generateFibSeries;
 const reverseSeries = lib.reverseSeries;
 const splitEvenOdd = lib.splitEvenOdd;
+const findSumOfNumberList = lib.findSumOfNumberList;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -31,4 +32,13 @@ assert.deepEqual(splitEvenOdd([2]),[[2],[]]);
 //for negetive values and all odd
 assert.deepEqual(splitEvenOdd([-1,-2,-3,-5]),[[-2],[-1,-3,-5]]);
 assert.deepEqual(splitEvenOdd([]),[[],[]]);
+
+/*---------- Test for findSumOfNumberList ----------*/
+
+//for list of one and two elements
+assert.equal(findSumOfNumberList([1]),1);
+assert.equal(findSumOfNumberList([-1,1]),0);
+//for >1000 values
+assert.equal(findSumOfNumberList([12,12,12]),36);
+assert.equal(findSumOfNumberList([1000,2000]),3000);
 

@@ -27,7 +27,15 @@ const splitEvenOdd = function(list){
   return evenOddList;  
 }
 
+const findSumOfNumberList = function(list){
+  let sum = 0;
+  for(let index = 0; index < list.length; index++){
+    sum += list[index];
+  }
+  return sum;
+}
 
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
+exports.findSumOfNumberList = findSumOfNumberList;
