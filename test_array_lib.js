@@ -6,6 +6,9 @@ const reverseSeries = lib.reverseSeries;
 const splitEvenOdd = lib.splitEvenOdd;
 const findSumOfNumberList = lib.findSumOfNumberList;
 const addTwoNumbers = lib.addTwoNumbers;
+const extractAlternateNumbers = lib.extractAlternateNumbers;
+const findMaxValueInList = lib.findMaxValueInList;
+const findMinValueInList = lib.findMinValueInList;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -48,4 +51,19 @@ assert.equal(findSumOfNumberList([1000,2000]),3000);
 assert.equal(addTwoNumbers(10,20), 30);
 assert.equal(addTwoNumbers(0,0),0);
 
+/*----------- Test for addTwoNumbers ---------------*/
 
+//for empty and 1 element array
+assert.deepEqual(extractAlternateNumbers([]),[]);
+assert.deepEqual(extractAlternateNumbers([1]),[1]);
+
+assert.deepEqual(extractAlternateNumbers([1,2,3,4]),[1,3]);
+assert.deepEqual(extractAlternateNumbers([1,-4,5,1,65]),[1,5,65]);
+
+/*----------- Test for findMaxValueInList ---------------*/
+
+assert.equal(findMaxValueInList([1,2,3,4,5]), 5);
+assert.equal(findMaxValueInList([1]), 1);
+
+assert.equal(findMaxValueInList([111,1,11,]), 111);
+assert.equal(findMaxValueInList([5,5,5,5,5]), 5);
