@@ -111,6 +111,24 @@ const mapLength = function(list){
   return mappedList;
 }
 
+const countOddNumbers = function(list){
+  let count = 0;
+  for(let index = 0; index < list.length; index++){
+    if(isOdd(list[index]))
+      count++;
+  }
+  return count;
+}
+
+const countEvenNumbers = function(list){
+  let count = 0;
+  for(let index = 0; index < list.length; index++){
+    if(isEven(list[index]))
+      count++;
+  }
+  return count;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -129,3 +147,5 @@ exports.selectEvenNumbers = selectEvenNumbers;
 
 exports.selectOddNumbers = selectOddNumbers;
 exports.mapLength = mapLength;
+exports.countEvenNumbers = countEvenNumbers;
+exports.countOddNumbers = countOddNumbers;

@@ -14,6 +14,8 @@ const isOdd = lib.isOdd;
 const selectOddNumbers = lib.selectOddNumbers;
 const selectEvenNumbers = lib.selectEvenNumbers;
 const mapLength = lib.mapLength;
+const countEvenNumbers = lib.countEvenNumbers;
+const countOddNumbers = lib.countOddNumbers; 
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -121,3 +123,18 @@ assert.deepEqual(mapLength([]),[]);
 assert.deepEqual(mapLength(["a","abc"]),[1,3]);
 assert.deepEqual(mapLength(["ABC","CDE","GHIJ"]),[3,3,4]);
 
+/*----------- Test for countEvenNumbers ---------------*/
+
+assert.equal(countEvenNumbers([1]),0);
+assert.equal(countEvenNumbers([0]),1);
+
+assert.equal(countEvenNumbers([2,,4,6]),3);
+assert.equal(countEvenNumbers([1,2,-4]),2);
+
+/*----------- Test for countOddNumbers ---------------*/
+
+assert.equal(countOddNumbers([1]),1)
+assert.equal(countOddNumbers([0]),0)
+
+assert.equal(countOddNumbers([2,,4,6]),0)
+assert.equal(countOddNumbers([1,2,-4]),1)
