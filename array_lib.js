@@ -74,32 +74,18 @@ const extractAlternateNumbers = function(list){
 }
 
 const findMaxValueInList = function(list){
-  let max = list[0];
-  for(let index=0; index < list.length ; index++){
-    if(max < list[index+1]){
-      max = list[index+1];
-    }
-  }
-  return max;
+  let sortedList = sortInDescending(list);
+  return sortedList[0];
 }
 
 const findMinValueInList = function(list){
-  let min = list[0];
-  for(let index=0; index < list.length ; index++){
-    if(min > list[index+1]){
-      min = list[index+1];
-    }
-  }
-  return min;
+  let sortedList = sortInAscending(list);
+  return sortedList[0];
 }
 
 const findAverage = function(list){
-  let average;
-  let sum =0;
-  for(let index =0; index <list.length; index++){
-    sum = sum + list[index]; 
-  }
-  average = sum / list.length;
+  let sum = findSumOfNumberList(list);
+  let average = sum / list.length;
   return average;
 }
 
@@ -112,21 +98,13 @@ const mapLength = function(list){
 }
 
 const countOddNumbers = function(list){
-  let count = 0;
-  for(let index = 0; index < list.length; index++){
-    if(isOdd(list[index]))
-      count++;
-  }
-  return count;
+  let oddElements = selectOddNumbers(list);
+  return oddElements.length;
 }
 
 const countEvenNumbers = function(list){
-  let count = 0;
-  for(let index = 0; index < list.length; index++){
-    if(isEven(list[index]))
-      count++;
-  }
-  return count;
+  let evenElements = selectEvenNumbers(list);
+  return evenElements.length;
 }
 
 const countNumbersAboveThreshold = function(list, threshold){
@@ -197,6 +175,7 @@ const isDescending = function(list){
   }
   return true;
 }
+
 const extractDigit = function(number){
   return number.toString().split("");
 }

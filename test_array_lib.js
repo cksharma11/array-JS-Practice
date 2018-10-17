@@ -84,6 +84,14 @@ assert.equal(findMaxValueInList([1]), 1);
 assert.equal(findMaxValueInList([111,1,11,]), 111);
 assert.equal(findMaxValueInList([5,5,5,5,5]), 5);
 
+/*----------- Test for findMinValueInList ---------------*/
+
+assert.equal(findMinValueInList([1,2,3,4,5]), 1);
+assert.equal(findMinValueInList([1]), 1);
+
+assert.equal(findMinValueInList([111,1,11,]), 1);
+assert.equal(findMinValueInList([5,5,5,5,5]), 5);
+
 /*----------- Test for isEven ---------------*/
 
 assert.equal(isEven(0), true);
