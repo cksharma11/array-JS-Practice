@@ -1,3 +1,29 @@
+const isEven = function(number){
+  return Math.abs(number % 2) == 0;
+}
+
+const isOdd = function(number){
+  return Math.abs(number % 2) == 1;
+}
+
+const selectOddNumbers = function(list){
+  let listOfOddNumbers = [];
+  for(let index = 0; index < list.length; index++){
+    if(isOdd(list[index]))
+      listOfOddNumbers.push(list[index]);
+  }
+  return listOfOddNumbers;
+}
+
+const selectEvenNumbers = function(list){
+  let listOfEvenNumbers = [];
+  for(let index = 0; index < list.length; index++){
+    if(isEven(list[index]))
+      listOfEvenNumbers.push(list[index]);
+  }
+  return listOfEvenNumbers;
+}
+
 const generateFibSeries = function(nthTerm){
   let firstTerm = -1;
   let secondTerm = 1;
@@ -32,7 +58,11 @@ const addTwoNumbers = function(a,b){
 }
 
 const findSumOfNumberList = function(list){
-  return list.reduce(addTwoNumbers, 0);
+  let sum = 0;
+  for(let index =0; index <list.length; index++){
+    sum = sum + list[index];
+  }
+  return sum;
 }
 
 const extractAlternateNumbers = function(list){
@@ -44,22 +74,49 @@ const extractAlternateNumbers = function(list){
 }
 
 const findMaxValueInList = function(list){
-  return list.reduce(function(a,b){
-    return Math.max(a,b)
-  });
+  let max = list[0];
+  for(let index=0; index < list.length ; index++){
+    if(max < list[index+1]){
+      max = list[index+1];
+    }
+  }
+  return max;
 }
 
 const findMinValueInList = function(list){
-  return list.reduce(function(a,b){
-    return Math.min(a,b)
-  });
+  let min = list[0];
+  for(let index=0; index < list.length ; index++){
+    if(min > list[index+1]){
+      min = list[index+1];
+    }
+  }
+  return min;
+}
+
+const findAverage = function(list){
+  let average;
+  let sum =0;
+  for(let index =0; index <list.length; index++){
+    sum = sum + list[index]; 
+  }
+  average = sum / list.length;
+  return average;
 }
 
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
+
 exports.addTwoNumbers = addTwoNumbers;
 exports.findSumOfNumberList = findSumOfNumberList;
 exports.extractAlternateNumbers = extractAlternateNumbers;
+
 exports.findMaxValueInList = findMaxValueInList;
 exports.findMinValueInList = findMinValueInList;
+exports.findAverage = findAverage;
+
+exports.isEven = isEven;
+exports.isOdd = isOdd;
+exports.selectEvenNumbers = selectEvenNumbers;
+
+exports.selectOddNumbers = selectOddNumbers;

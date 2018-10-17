@@ -9,6 +9,10 @@ const addTwoNumbers = lib.addTwoNumbers;
 const extractAlternateNumbers = lib.extractAlternateNumbers;
 const findMaxValueInList = lib.findMaxValueInList;
 const findMinValueInList = lib.findMinValueInList;
+const isEven = lib.isEven;
+const isOdd = lib.isOdd;
+const selectOddNumbers = lib.selectOddNumbers;
+const selectEvenNumbers = lib.selectEvenNumbers;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -67,3 +71,43 @@ assert.equal(findMaxValueInList([1]), 1);
 
 assert.equal(findMaxValueInList([111,1,11,]), 111);
 assert.equal(findMaxValueInList([5,5,5,5,5]), 5);
+
+/*----------- Test for isEven ---------------*/
+
+assert.equal(isEven(0), true);
+assert.equal(isEven(2), true);
+assert.equal(isEven(1), false);
+
+assert.equal(isEven(-11), false);
+assert.equal(isEven(12), true);
+
+/*----------- Test for isOdd ---------------*/
+
+assert.equal(isOdd(0), false);
+assert.equal(isOdd(2), false);
+assert.equal(isOdd(1), true);
+
+assert.equal(isOdd(-11), true);
+assert.equal(isOdd(12), false);
+
+/*----------- Test for selectEvenNumbers ---------------*/
+
+assert.deepEqual(selectEvenNumbers([1]),[]);
+assert.deepEqual(selectEvenNumbers([0]),[0]);
+
+assert.deepEqual(selectEvenNumbers([1,2]),[2]);
+assert.deepEqual(selectEvenNumbers([1,2,3,4]),[2,4]);
+
+assert.deepEqual(selectEvenNumbers([-1,-2]),[-2]);
+assert.deepEqual(selectEvenNumbers([1,-12]),[-12]);
+
+/*----------- Test for selectOddNumbers ---------------*/
+
+assert.deepEqual(selectOddNumbers([1]),[1]);
+assert.deepEqual(selectOddNumbers([0]),[]);
+
+assert.deepEqual(selectOddNumbers([1,2]),[1]);
+assert.deepEqual(selectOddNumbers([1,2,3,4]),[1,3]);
+
+assert.deepEqual(selectOddNumbers([-1,-2]),[-1]);
+assert.deepEqual(selectOddNumbers([1,-12]),[1]);
