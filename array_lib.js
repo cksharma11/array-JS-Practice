@@ -147,6 +147,14 @@ const countNumbersBelowThreshold = function(list, threshold){
   return count;
 }
 
+const findIndex = function(list, number){
+  for(let index = 0; index < list.length; index++){
+    if(list[index] == number)
+      return index;
+  }
+  return "Not found";
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -170,3 +178,4 @@ exports.countEvenNumbers = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
 exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
 exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
+exports.findIndex = findIndex;

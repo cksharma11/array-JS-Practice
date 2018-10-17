@@ -18,6 +18,7 @@ const countEvenNumbers = lib.countEvenNumbers;
 const countOddNumbers = lib.countOddNumbers; 
 const countNumbersAboveThreshold = lib.countNumbersAboveThreshold;
 const countNumbersBelowThreshold = lib.countNumbersBelowThreshold;
+const findIndex = lib.findIndex;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -154,3 +155,11 @@ assert.equal(countNumbersBelowThreshold([1],1),0);
 
 assert.equal(countNumbersBelowThreshold([1,2,12,4,6],4),2);
 assert.equal(countNumbersBelowThreshold([2,2,3,4,],2),0);
+
+/*------------ Test for findIndex -------------------*/
+
+assert.equal(findIndex([1],1),0);
+assert.equal(findIndex([1,2,4],2),1);
+
+assert.equal(findIndex([1,2,3,4],10),"Not found");
+assert.equal(findIndex([1,2,-1,2,1],-1),2);
