@@ -7,12 +7,12 @@ const splitEvenOdd = lib.splitEvenOdd;
 const findSumOfNumberList = lib.findSumOfNumberList;
 const addTwoNumbers = lib.addTwoNumbers;
 const extractAlternateNumbers = lib.extractAlternateNumbers;
-const findMaxValueInList = lib.findMaxValueInList;
+const findMaxOfList = lib.findMaxOfList;
 const findMinValueInList = lib.findMinValueInList;
 const isEven = lib.isEven;
 const isOdd = lib.isOdd;
-const selectOddNumbers = lib.selectOddNumbers;
-const selectEvenNumbers = lib.selectEvenNumbers;
+const extractEvenElements = lib.extractEvenElements;
+const extractOddElements = lib.extractOddElements;
 const mapLength = lib.mapLength;
 const countEvenNumbers = lib.countEvenNumbers;
 const countOddNumbers = lib.countOddNumbers; 
@@ -76,21 +76,22 @@ assert.deepEqual(extractAlternateNumbers([1]),[1]);
 assert.deepEqual(extractAlternateNumbers([1,2,3,4]),[1,3]);
 assert.deepEqual(extractAlternateNumbers([1,-4,5,1,65]),[1,5,65]);
 
-/*----------- Test for findMaxValueInList ---------------*/
+/*----------- Test for findMaxOfList ---------------*/
 
-assert.equal(findMaxValueInList([1,2,3,4,5]), 5);
-assert.equal(findMaxValueInList([1]), 1);
+assert.equal(findMaxOfList([1,2,3,4,5]), 5);
+assert.equal(findMaxOfList([1]), 1);
 
-assert.equal(findMaxValueInList([111,1,11,]), 111);
-assert.equal(findMaxValueInList([5,5,5,5,5]), 5);
+assert.equal(findMaxOfList([111,1,11,]), 111);
+assert.equal(findMaxOfList([5,5,5,5,5]), 5);
 
-/*----------- Test for findMinValueInList ---------------*/
+/*----------- Test for findMaxOfList ---------------*/
 
-assert.equal(findMinValueInList([1,2,3,4,5]), 1);
-assert.equal(findMinValueInList([1]), 1);
+assert.equal(findMaxOfList([1,2,3,4,5]), 5);
+assert.equal(findMaxOfList([1]), 1);
 
-assert.equal(findMinValueInList([111,1,11,]), 1);
-assert.equal(findMinValueInList([5,5,5,5,5]), 5);
+assert.equal(findMaxOfList([-111,-1,-11,]), -1);
+assert.equal(findMaxOfList([5,5,5,5,5]), 5);
+assert.equal(findMaxOfList([-5,5,5,-5,5]), 5);
 
 /*----------- Test for isEven ---------------*/
 
@@ -110,27 +111,27 @@ assert.equal(isOdd(1), true);
 assert.equal(isOdd(-11), true);
 assert.equal(isOdd(12), false);
 
-/*----------- Test for selectEvenNumbers ---------------*/
+/*----------- Test for extractEvenElements ---------------*/
 
-assert.deepEqual(selectEvenNumbers([1]),[]);
-assert.deepEqual(selectEvenNumbers([0]),[0]);
+assert.deepEqual(extractEvenElements([1]),[]);
+assert.deepEqual(extractEvenElements([0]),[0]);
 
-assert.deepEqual(selectEvenNumbers([1,2]),[2]);
-assert.deepEqual(selectEvenNumbers([1,2,3,4]),[2,4]);
+assert.deepEqual(extractEvenElements([1,2]),[2]);
+assert.deepEqual(extractEvenElements([1,2,3,4]),[2,4]);
 
-assert.deepEqual(selectEvenNumbers([-1,-2]),[-2]);
-assert.deepEqual(selectEvenNumbers([1,-12]),[-12]);
+assert.deepEqual(extractEvenElements([-1,-2]),[-2]);
+assert.deepEqual(extractEvenElements([1,-12]),[-12]);
 
-/*----------- Test for selectOddNumbers ---------------*/
+/*----------- Test for extractOddElements ---------------*/
 
-assert.deepEqual(selectOddNumbers([1]),[1]);
-assert.deepEqual(selectOddNumbers([0]),[]);
+assert.deepEqual(extractOddElements([1]),[1]);
+assert.deepEqual(extractOddElements([0]),[]);
 
-assert.deepEqual(selectOddNumbers([1,2]),[1]);
-assert.deepEqual(selectOddNumbers([1,2,3,4]),[1,3]);
+assert.deepEqual(extractOddElements([1,2]),[1]);
+assert.deepEqual(extractOddElements([1,2,3,4]),[1,3]);
 
-assert.deepEqual(selectOddNumbers([-1,-2]),[-1]);
-assert.deepEqual(selectOddNumbers([1,-12]),[1]);
+assert.deepEqual(extractOddElements([-1,-2]),[-1]);
+assert.deepEqual(extractOddElements([1,-12]),[1]);
 
 /*----------- Test for mapLength ---------------*/
 

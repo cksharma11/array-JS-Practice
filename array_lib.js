@@ -6,7 +6,7 @@ const isOdd = function(number){
   return Math.abs(number % 2) == 1;
 }
 
-const selectOddNumbers = function(list){
+const extractOddElements = function(list){
   let listOfOddNumbers = [];
   for(let index = 0; index < list.length; index++){
     if(isOdd(list[index]))
@@ -15,7 +15,7 @@ const selectOddNumbers = function(list){
   return listOfOddNumbers;
 }
 
-const selectEvenNumbers = function(list){
+const extractEvenElements = function(list){
   let listOfEvenNumbers = [];
   for(let index = 0; index < list.length; index++){
     if(isEven(list[index]))
@@ -73,12 +73,12 @@ const extractAlternateNumbers = function(list){
   return alternateList;
 }
 
-const findMaxValueInList = function(list){
+const findMaxOfList = function(list){
   let sortedList = sortInDescending(list);
   return sortedList[0];
 }
 
-const findMinValueInList = function(list){
+const findMinOfList = function(list){
   let sortedList = sortInAscending(list);
   return sortedList[0];
 }
@@ -98,12 +98,12 @@ const mapLength = function(list){
 }
 
 const countOddNumbers = function(list){
-  let oddElements = selectOddNumbers(list);
+  let oddElements = extractOddElements(list);
   return oddElements.length;
 }
 
 const countEvenNumbers = function(list){
-  let evenElements = selectEvenNumbers(list);
+  let evenElements = extractEvenElements(list);
   return evenElements.length;
 }
 
@@ -205,15 +205,15 @@ exports.addTwoNumbers = addTwoNumbers;
 exports.findSumOfNumberList = findSumOfNumberList;
 exports.extractAlternateNumbers = extractAlternateNumbers;
 
-exports.findMaxValueInList = findMaxValueInList;
-exports.findMinValueInList = findMinValueInList;
+exports.findMaxOfList = findMaxOfList;
+exports.findMinOfList = findMinOfList;
 exports.findAverage = findAverage;
 
 exports.isEven = isEven;
 exports.isOdd = isOdd;
-exports.selectEvenNumbers = selectEvenNumbers;
+exports.extractEvenElements = extractEvenElements;
 
-exports.selectOddNumbers = selectOddNumbers;
+exports.extractOddElements = extractOddElements;
 exports.mapLength = mapLength;
 exports.countEvenNumbers = countEvenNumbers;
 
