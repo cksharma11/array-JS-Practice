@@ -155,14 +155,17 @@ const findIndex = function(list, number){
   return "Not found";
 }
 
+const swapNumbers = function(list,index){
+  let temp = list[index];
+  list[index] = list[index+1];
+  list[index+1] = temp;
+}
+
 const sortInAscending = function(list){
   for(let row = 0; row < list.length; row++){
     for(let col = 0; col < list.length-row; col++){
-      if(list[col] > list[col+1]){
-        let temp = list[col];
-        list[col] = list[col+1];
-        list[col+1] = temp;
-      }
+      if(list[col] > list[col+1])
+        swapNumbers(list, col);
     }
   }
   return list;
@@ -172,9 +175,7 @@ const sortInDescending = function(list){
   for(let row = 0; row < list.length; row++){
     for(let col = 0; col < list.length-row; col++){
       if(list[col] < list[col+1]){
-        let temp = list[col];
-        list[col] = list[col+1];
-        list[col+1] = temp;
+        swapNumbers(list, col);
       }
     }
   }
