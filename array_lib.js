@@ -155,6 +155,32 @@ const findIndex = function(list, number){
   return "Not found";
 }
 
+const sortInAscending = function(list){
+  for(let row = 0; row < list.length; row++){
+    for(let col = 0; col < list.length-row; col++){
+      if(list[col] > list[col+1]){
+        let temp = list[col];
+        list[col] = list[col+1];
+        list[col+1] = temp;
+      }
+    }
+  }
+  return list;
+}
+
+const sortInDescending = function(list){
+  for(let row = 0; row < list.length; row++){
+    for(let col = 0; col < list.length-row; col++){
+      if(list[col] < list[col+1]){
+        let temp = list[col];
+        list[col] = list[col+1];
+        list[col+1] = temp;
+      }
+    }
+  }
+  return list;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -179,3 +205,5 @@ exports.countOddNumbers = countOddNumbers;
 exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
 exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
 exports.findIndex = findIndex;
+exports.sortInAscending = sortInAscending;
+exports.sortInDescending = sortInDescending;

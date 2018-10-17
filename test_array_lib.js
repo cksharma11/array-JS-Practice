@@ -19,6 +19,8 @@ const countOddNumbers = lib.countOddNumbers;
 const countNumbersAboveThreshold = lib.countNumbersAboveThreshold;
 const countNumbersBelowThreshold = lib.countNumbersBelowThreshold;
 const findIndex = lib.findIndex;
+const sortInAscending = lib.sortInAscending;
+const sortInDescending = lib.sortInDescending;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -163,3 +165,20 @@ assert.equal(findIndex([1,2,4],2),1);
 
 assert.equal(findIndex([1,2,3,4],10),"Not found");
 assert.equal(findIndex([1,2,-1,2,1],-1),2);
+
+/*------------ Test for sortInAscending -------------------*/
+
+assert.deepEqual(sortInAscending([1]),[1]);
+assert.deepEqual(sortInAscending([2,1]),[1,2]);
+
+assert.deepEqual(sortInAscending([2,-1,10,1]),[-1,1,2,10]);
+assert.deepEqual(sortInAscending([99,9,9,1]),[1,9,9,99]);
+
+/*------------ Test for sortInDescending -------------------*/
+
+assert.deepEqual(sortInDescending([1]),[1]);
+assert.deepEqual(sortInDescending([2,1]),[2,1]);
+
+assert.deepEqual(sortInDescending([2,-1,10,1]),[10,2,1,-1]);
+assert.deepEqual(sortInDescending([-1,-2,-3,-4]),[-1,-2,-3,-4]);
+
