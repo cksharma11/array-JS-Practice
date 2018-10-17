@@ -74,13 +74,23 @@ const extractAlternateNumbers = function(list){
 }
 
 const findMaxOfList = function(list){
-  let sortedList = sortInDescending(list);
-  return sortedList[0];
+  let max = list[0];
+  for(let index = 1; index <list.length; index++){
+    if(max < list[index]){
+      max = list[index]
+    }
+  }
+  return max;
 }
 
 const findMinOfList = function(list){
-  let sortedList = sortInAscending(list);
-  return sortedList[0];
+  let min = list[0];
+  for(let index = 1; index <list.length; index++){
+    if(min > list[index]){
+      min = list[index]
+    }
+  }
+  return min;
 }
 
 const findAverage = function(list){
