@@ -16,6 +16,8 @@ const selectEvenNumbers = lib.selectEvenNumbers;
 const mapLength = lib.mapLength;
 const countEvenNumbers = lib.countEvenNumbers;
 const countOddNumbers = lib.countOddNumbers; 
+const countNumbersAboveThreshold = lib.countNumbersAboveThreshold;
+const countNumbersBelowThreshold = lib.countNumbersBelowThreshold;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -138,3 +140,17 @@ assert.equal(countOddNumbers([0]),0)
 
 assert.equal(countOddNumbers([2,,4,6]),0)
 assert.equal(countOddNumbers([1,2,-4]),1)
+
+/*----------- Test for countNumbersAboveThreshold ---------------*/
+assert.equal(countNumbersAboveThreshold([1,2],1),1);
+assert.equal(countNumbersAboveThreshold([1],1),0);
+
+assert.equal(countNumbersAboveThreshold([1,2,12,4,6],4),2);
+assert.equal(countNumbersAboveThreshold([2,2,3,4,],2),2);
+
+/*----------- Test for countNumbersBelowThreshold ---------------*/
+assert.equal(countNumbersBelowThreshold([1,2],1),0);
+assert.equal(countNumbersBelowThreshold([1],1),0);
+
+assert.equal(countNumbersBelowThreshold([1,2,12,4,6],4),2);
+assert.equal(countNumbersBelowThreshold([2,2,3,4,],2),0);

@@ -129,6 +129,24 @@ const countEvenNumbers = function(list){
   return count;
 }
 
+const countNumbersAboveThreshold = function(list, threshold){
+    let count = 0;
+    for(let index = 0; index < list.length; index++){
+      if(list[index] > threshold)
+        count++;
+    }
+  return count;
+}
+
+const countNumbersBelowThreshold = function(list, threshold){
+    let count = 0;
+    for(let index = 0; index < list.length; index++){
+      if(list[index] < threshold)
+        count++;
+    }
+  return count;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -148,4 +166,7 @@ exports.selectEvenNumbers = selectEvenNumbers;
 exports.selectOddNumbers = selectOddNumbers;
 exports.mapLength = mapLength;
 exports.countEvenNumbers = countEvenNumbers;
+
 exports.countOddNumbers = countOddNumbers;
+exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
+exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
