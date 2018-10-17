@@ -201,6 +201,23 @@ const extractDigit = function(number){
   return number.toString().split("");
 }
 
+const isContain = function(list, element){
+  for(let index = 0; index < list.length; index++){
+    if(list[index] == element)
+      return true;
+  }
+  return false;
+}
+
+const extractUniqe = function(list){
+  let uniqeList = [];
+  for(let index = 0; index < list.length; index++){
+    if(!isContain(uniqeList, list[index]))
+      uniqeList.push(list[index]);
+  }
+  return uniqeList;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -232,3 +249,4 @@ exports.sortInDescending = sortInDescending;
 exports.extractDigit = extractDigit;
 exports.isAscending = isAscending;
 exports.isDescending = isDescending;
+exports.extractUniqe = extractUniqe;

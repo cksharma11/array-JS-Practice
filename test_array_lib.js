@@ -24,6 +24,7 @@ const sortInDescending = lib.sortInDescending;
 const extractDigit = lib.extractDigit;
 const isAscending = lib.isAscending;
 const isDescending = lib.isDescending;
+const extractUniqe = lib.extractUniqe;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -195,4 +196,24 @@ assert.deepEqual(extractDigit(-123),['-',1,2,3]);
 
 /*------------- Test for isAscending ----------------*/
 
-assert.equal(isAscending([1]),true);
+assert.equal(isAscending([]),true);
+assert.equal(isAscending([2,3,55]),true);
+
+assert.equal(isAscending([1,12,1]),false);
+assert.equal(isAscending([99,1]),false);
+
+/*------------- Test for isDescending ----------------*/
+
+assert.equal(isDescending([]),true);
+assert.equal(isDescending([2,3,55]),false);
+
+assert.equal(isDescending([5,4,3,2,1]),true);
+assert.equal(isDescending([99,1]),true);
+
+/*-------------- Test for extractUniqe ---------------*/
+
+assert.deepEqual(extractUniqe([1,1]),[1]);
+assert.deepEqual(extractUniqe([1,1,2,2]),[1,2]);
+
+assert.deepEqual(extractUniqe([1,2,1,1]),[1,2]);
+assert.deepEqual(extractUniqe([1,12,14,4]),[1,12,14,4]);
