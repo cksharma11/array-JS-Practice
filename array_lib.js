@@ -155,7 +155,7 @@ const findIndex = function(list, number){
   return "Not found";
 }
 
-const swapNumbers = function(list,index){
+const swapWithNextIndex = function(list,index){
   let temp = list[index];
   list[index] = list[index+1];
   list[index+1] = temp;
@@ -165,7 +165,7 @@ const sortInAscending = function(list){
   for(let row = 0; row < list.length; row++){
     for(let col = 0; col < list.length-row; col++){
       if(list[col] > list[col+1])
-        swapNumbers(list, col);
+        swapWithNextIndex(list, col);
     }
   }
   return list;
@@ -175,13 +175,28 @@ const sortInDescending = function(list){
   for(let row = 0; row < list.length; row++){
     for(let col = 0; col < list.length-row; col++){
       if(list[col] < list[col+1]){
-        swapNumbers(list, col);
+        swapWithNextIndex(list, col);
       }
     }
   }
   return list;
 }
 
+const isAscending = function(list){
+  for(let index =0; index < list.length-1; index++){
+    if(list[index] > list[index +1])
+      return false;
+  }
+  return true;
+}
+
+const isDescending = function(list){
+  for(let index = 0; index < list.length-1; index++){
+    if(list[index] < list[index+1])
+      return false;
+  }
+  return true;
+}
 const extractDigit = function(number){
   return number.toString().split("");
 }
@@ -209,7 +224,11 @@ exports.countEvenNumbers = countEvenNumbers;
 exports.countOddNumbers = countOddNumbers;
 exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
 exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
+
 exports.findIndex = findIndex;
 exports.sortInAscending = sortInAscending;
 exports.sortInDescending = sortInDescending;
+
 exports.extractDigit = extractDigit;
+exports.isAscending = isAscending;
+exports.isDescending = isDescending;

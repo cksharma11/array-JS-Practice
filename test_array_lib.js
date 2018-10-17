@@ -22,6 +22,8 @@ const findIndex = lib.findIndex;
 const sortInAscending = lib.sortInAscending;
 const sortInDescending = lib.sortInDescending;
 const extractDigit = lib.extractDigit;
+const isAscending = lib.isAscending;
+const isDescending = lib.isDescending;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -190,3 +192,7 @@ assert.deepEqual(extractDigit(123),[1,2,3]);
 
 assert.deepEqual(extractDigit(98765),[9,8,7,6,5]);
 assert.deepEqual(extractDigit(-123),['-',1,2,3]);
+
+/*------------- Test for isAscending ----------------*/
+
+assert.equal(isAscending([1]),true);
