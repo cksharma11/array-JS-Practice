@@ -13,6 +13,7 @@ const isEven = lib.isEven;
 const isOdd = lib.isOdd;
 const selectOddNumbers = lib.selectOddNumbers;
 const selectEvenNumbers = lib.selectEvenNumbers;
+const mapLength = lib.mapLength;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -111,3 +112,12 @@ assert.deepEqual(selectOddNumbers([1,2,3,4]),[1,3]);
 
 assert.deepEqual(selectOddNumbers([-1,-2]),[-1]);
 assert.deepEqual(selectOddNumbers([1,-12]),[1]);
+
+/*----------- Test for mapLength ---------------*/
+
+assert.deepEqual(mapLength(["a"]),[1]);
+assert.deepEqual(mapLength([]),[]);
+
+assert.deepEqual(mapLength(["a","abc"]),[1,3]);
+assert.deepEqual(mapLength(["ABC","CDE","GHIJ"]),[3,3,4]);
+

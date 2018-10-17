@@ -103,6 +103,14 @@ const findAverage = function(list){
   return average;
 }
 
+const mapLength = function(list){
+  let mappedList = [];
+  for(let index = 0; index < list.length; index++){
+    mappedList[index] = list[index].length;
+  }
+  return mappedList;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -120,3 +128,4 @@ exports.isOdd = isOdd;
 exports.selectEvenNumbers = selectEvenNumbers;
 
 exports.selectOddNumbers = selectOddNumbers;
+exports.mapLength = mapLength;
