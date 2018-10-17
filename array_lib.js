@@ -181,6 +181,10 @@ const sortInDescending = function(list){
   return list;
 }
 
+const extractDigit = function(number){
+  return number.toString().split("");
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -207,3 +211,4 @@ exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
 exports.findIndex = findIndex;
 exports.sortInAscending = sortInAscending;
 exports.sortInDescending = sortInDescending;
+exports.extractDigit = extractDigit;

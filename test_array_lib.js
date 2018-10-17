@@ -21,6 +21,7 @@ const countNumbersBelowThreshold = lib.countNumbersBelowThreshold;
 const findIndex = lib.findIndex;
 const sortInAscending = lib.sortInAscending;
 const sortInDescending = lib.sortInDescending;
+const extractDigit = lib.extractDigit;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -182,3 +183,10 @@ assert.deepEqual(sortInDescending([2,1]),[2,1]);
 assert.deepEqual(sortInDescending([2,-1,10,1]),[10,2,1,-1]);
 assert.deepEqual(sortInDescending([-1,-2,-3,-4]),[-1,-2,-3,-4]);
 
+/*------------- Test for extractDigit ----------------*/
+
+assert.deepEqual(extractDigit(1),[1]);
+assert.deepEqual(extractDigit(123),[1,2,3]);
+
+assert.deepEqual(extractDigit(98765),[9,8,7,6,5]);
+assert.deepEqual(extractDigit(-123),['-',1,2,3]);
