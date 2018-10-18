@@ -225,12 +225,26 @@ const unionArray = function(list_1, list_2){
 }
 
 const zipElemets = function(list_1, list_2){
-  let maxLength = Math.max(list_1.length, list_2.length);
+  let maxLength = Math.min(list_1.length, list_2.length);
   let zippedList = [];
   for(let index = 0; index < maxLength; index++){
     zippedList[index] = [list_1[index],list_2[index]];
   }
   return zippedList;
+}
+
+const intersectArray = function(list_1, list_2){
+  let unique_list_1 = extractUniqe(list_1);
+  let unique_list_2 = extractUniqe(list_2);
+  let maxLength = Math.max(list_1.length, list_2.length);
+  let result = [];
+
+  for(let index = 0; index < maxLength; index++){
+    if(isContain(list_1, list_2[index])){
+      result.push(list_2[index]);
+    }
+  }
+  return result;
 }
 
 exports.generateFibSeries = generateFibSeries;
@@ -270,3 +284,4 @@ exports.arrayPartition = arrayPartition;
 
 exports.unionArray = unionArray;
 exports.zipElemets = zipElemets;
+exports.intersectArray = intersectArray;

@@ -28,6 +28,7 @@ const extractUniqe = lib.extractUniqe;
 const arrayPartition = lib.arrayPartition; 
 const unionArray = lib.unionArray;
 const zipElemets = lib.zipElemets;
+const intersectArray = lib.intersectArray;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -250,5 +251,12 @@ assert.deepEqual(unionArray([1],[]),[1]);
 
 assert.deepEqual(zipElemets([1],[1]),[[1,1]]);
 assert.deepEqual(zipElemets([1,2,3],[4,5,6]),[[1,4],[2,5],[3,6]]);
+
+assert.deepEqual(zipElemets([1,2,3],[4,5,6,11,2]),[[1,4],[2,5],[3,6]]);
+assert.deepEqual(zipElemets([1,2,3,1,2,3],[4,5,6]),[[1,4],[2,5],[3,6]]);
+
+/*-------------- Test for intersectArray ---------------*/
+
+assert.deepEqual(intersectArray([1],[1]),[1]);
 
 console.log("All test passed...");
