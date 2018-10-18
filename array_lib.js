@@ -140,7 +140,7 @@ const findIndex = function(list, number){
     if(list[index] == number)
       return index;
   }
-  return "Not found";
+  return -1;
 }
 
 const swapWithNextIndex = function(list,index){
@@ -207,6 +207,19 @@ const extractUniqe = function(list){
   return uniqeList;
 }
 
+const arrayPartition = function(list, limit){
+  let partitionedArray = [[], []];
+  sortInAscending(list);
+  for(let index in list) {
+    partitionedArray[1].push(list[index]);
+    if(limit >= list[index]) {
+      partitionedArray[0].push(list[index]);
+      partitionedArray[1].pop();
+    }
+  }
+  return partitionedArray;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -239,3 +252,4 @@ exports.extractDigit = extractDigit;
 exports.isAscending = isAscending;
 exports.isDescending = isDescending;
 exports.extractUniqe = extractUniqe;
+exports.arrayPartition = arrayPartition;

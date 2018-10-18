@@ -25,6 +25,7 @@ const extractDigit = lib.extractDigit;
 const isAscending = lib.isAscending;
 const isDescending = lib.isDescending;
 const extractUniqe = lib.extractUniqe;
+const arrayPartition = lib.arrayPartition; 
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -176,7 +177,7 @@ assert.equal(countNumbersBelowThreshold([2,2,3,4,],2),0);
 assert.equal(findIndex([1],1),0);
 assert.equal(findIndex([1,2,4],2),1);
 
-assert.equal(findIndex([1,2,3,4],10),"Not found");
+assert.equal(findIndex([1,2,3,4],10),-1);
 assert.equal(findIndex([1,2,-1,2,1],-1),2);
 
 /*------------ Test for sortInAscending -------------------*/
@@ -226,3 +227,13 @@ assert.deepEqual(extractUniqe([1,1,2,2]),[1,2]);
 
 assert.deepEqual(extractUniqe([1,2,1,1]),[1,2]);
 assert.deepEqual(extractUniqe([1,12,14,4]),[1,12,14,4]);
+
+/*-------------- Test for arrayPartition ---------------*/
+
+assert.deepEqual(arrayPartition([1,2,3],2),[[1,2],[3]])
+assert.deepEqual(arrayPartition([-1,0,1],0),[[-1,0],[1]])
+
+assert.deepEqual(arrayPartition([11,21,11,11],11),[[11,11,11],[21]])
+assert.deepEqual(arrayPartition([11,12,130],130),[[11,12,130],[]])
+
+console.log("All test passed...");
