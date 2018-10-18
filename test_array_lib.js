@@ -27,6 +27,7 @@ const isDescending = lib.isDescending;
 const extractUniqe = lib.extractUniqe;
 const arrayPartition = lib.arrayPartition; 
 const unionArray = lib.unionArray;
+const zipElemets = lib.zipElemets;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -244,5 +245,10 @@ assert.deepEqual(unionArray([1,2,3],[2,3,4]),[1,2,3,4]);
 
 assert.deepEqual(unionArray([1,2,3,4,5],[1]),[1,2,3,4,5]);
 assert.deepEqual(unionArray([1],[]),[1]);
+
+/*-------------- Test for zipElemets ---------------*/
+
+assert.deepEqual(zipElemets([1],[1]),[[1,1]]);
+assert.deepEqual(zipElemets([1,2,3],[4,5,6]),[[1,4],[2,5],[3,6]]);
 
 console.log("All test passed...");

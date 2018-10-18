@@ -224,6 +224,15 @@ const unionArray = function(list_1, list_2){
   return extractUniqe(list_1.concat(list_2));
 }
 
+const zipElemets = function(list_1, list_2){
+  let maxLength = Math.max(list_1.length, list_2.length);
+  let zippedList = [];
+  for(let index = 0; index < maxLength; index++){
+    zippedList[index] = [list_1[index],list_2[index]];
+  }
+  return zippedList;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -254,7 +263,10 @@ exports.sortInDescending = sortInDescending;
 
 exports.extractDigit = extractDigit;
 exports.isAscending = isAscending;
+
 exports.isDescending = isDescending;
 exports.extractUniqe = extractUniqe;
 exports.arrayPartition = arrayPartition;
+
 exports.unionArray = unionArray;
+exports.zipElemets = zipElemets;
