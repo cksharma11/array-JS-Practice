@@ -220,6 +220,10 @@ const arrayPartition = function(list, limit){
   return partitionedArray;
 }
 
+const unionArray = function(list_1, list_2){
+  return extractUniqe(list_1.concat(list_2));
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -253,3 +257,4 @@ exports.isAscending = isAscending;
 exports.isDescending = isDescending;
 exports.extractUniqe = extractUniqe;
 exports.arrayPartition = arrayPartition;
+exports.unionArray = unionArray;

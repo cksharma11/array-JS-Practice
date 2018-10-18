@@ -26,6 +26,7 @@ const isAscending = lib.isAscending;
 const isDescending = lib.isDescending;
 const extractUniqe = lib.extractUniqe;
 const arrayPartition = lib.arrayPartition; 
+const unionArray = lib.unionArray;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -235,5 +236,13 @@ assert.deepEqual(arrayPartition([-1,0,1],0),[[-1,0],[1]])
 
 assert.deepEqual(arrayPartition([11,21,11,11],11),[[11,11,11],[21]])
 assert.deepEqual(arrayPartition([11,12,130],130),[[11,12,130],[]])
+
+/*-------------- Test for unionArray ---------------*/
+
+assert.deepEqual(unionArray([1],[1]),[1]);
+assert.deepEqual(unionArray([1,2,3],[2,3,4]),[1,2,3,4]);
+
+assert.deepEqual(unionArray([1,2,3,4,5],[1]),[1,2,3,4,5]);
+assert.deepEqual(unionArray([1],[]),[1]);
 
 console.log("All test passed...");
