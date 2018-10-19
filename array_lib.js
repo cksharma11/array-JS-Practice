@@ -263,6 +263,18 @@ const isSubset = function(list, subset){
   return result;
 }
 
+const rotateArray = function(list, num){
+  let indexOfNum = findIndex(list, num) +1;
+  let rotatedArray = [];
+  for(let index = indexOfNum; index < list.length; index++){
+    rotatedArray.push(list[index]);
+  }
+  for(let index = 0; index < indexOfNum; index++){
+    rotatedArray.push(list[index]);
+  }
+  return rotatedArray;
+}
+
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
 exports.splitEvenOdd = splitEvenOdd;
@@ -304,3 +316,4 @@ exports.intersectArray = intersectArray;
 
 exports.findDifference = findDifference;
 exports.isSubset = isSubset;
+exports.rotateArray = rotateArray;

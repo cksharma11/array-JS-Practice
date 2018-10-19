@@ -31,6 +31,7 @@ const zipElemets = lib.zipElemets;
 const intersectArray = lib.intersectArray;
 const findDifference = lib.findDifference;
 const isSubset = lib.isSubset;
+const rotateArray = lib.rotateArray;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -281,4 +282,13 @@ assert.deepEqual(isSubset([1,2],[]),true);
 assert.deepEqual(isSubset([1,2,12,1],[1,12]),true);
 assert.deepEqual(isSubset([1,2],[1,2,3]),false);
 
+/*-------------- Test for rotateArray ---------------*/
+
+assert.deepEqual(rotateArray([1,2,3],2),[3,1,2]);
+assert.deepEqual(rotateArray([1,2,3,4,5],2),[3,4,5,1,2]);
+
+assert.deepEqual(rotateArray([1,2,3,4,5],3),[4,5,1,2,3]);
+assert.deepEqual(rotateArray([1,2,3,4,5],4),[5,1,2,3,4]);
+
+/*------------------------------------------------*/
 console.log("All test passed...");
