@@ -36,10 +36,9 @@ const reverseSeries = function(series){
 }
 
 const splitEvenOdd = function(list){
-  let evenOddList = [[],[]];
-  for(let index = 0;index < list.length; index++){
-    evenOddList[Math.abs(list[index]%2)].push(list[index]);
-  }
+  let evenOddList = [0,1];
+  evenOddList[0] = extractEvenElements(list);
+  evenOddList[1] = extractOddElements(list);
   return evenOddList;  
 }
 
