@@ -29,6 +29,8 @@ const arrayPartition = lib.arrayPartition;
 const unionArray = lib.unionArray;
 const zipElemets = lib.zipElemets;
 const intersectArray = lib.intersectArray;
+const findDifference = lib.findDifference;
+const isSubset = lib.isSubset;
 
 /*---------- Test for generateFibSeries ------------*/
 
@@ -258,5 +260,25 @@ assert.deepEqual(zipElemets([1,2,3,1,2,3],[4,5,6]),[[1,4],[2,5],[3,6]]);
 /*-------------- Test for intersectArray ---------------*/
 
 assert.deepEqual(intersectArray([1],[1]),[1]);
+assert.deepEqual(intersectArray([1,2,3],[1,2]),[1,2]);
+
+assert.deepEqual(intersectArray([1,3,4],[1]),[1]);
+assert.deepEqual(intersectArray([],[]),[]);
+
+/*-------------- Test for findDifference ---------------*/
+
+assert.deepEqual(findDifference([1,2],[1]),[2]);
+assert.deepEqual(findDifference([1,2,1],[2]),[1,1]);
+
+assert.deepEqual(findDifference([1,2,3],[3]),[1,2]);
+assert.deepEqual(findDifference([1,2],[]),[1,2]);
+
+/*-------------- Test for isSubset ---------------*/
+
+assert.deepEqual(isSubset([1,2],[1]),true);
+assert.deepEqual(isSubset([1,2],[]),true);
+
+assert.deepEqual(isSubset([1,2,12,1],[1,12]),true);
+assert.deepEqual(isSubset([1,2],[1,2,3]),false);
 
 console.log("All test passed...");

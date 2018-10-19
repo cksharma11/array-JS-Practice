@@ -234,16 +234,32 @@ const zipElemets = function(list_1, list_2){
 }
 
 const intersectArray = function(list_1, list_2){
-  let unique_list_1 = extractUniqe(list_1);
-  let unique_list_2 = extractUniqe(list_2);
-  let maxLength = Math.max(list_1.length, list_2.length);
   let result = [];
-
-  for(let index = 0; index < maxLength; index++){
+  for(index in list_1){
     if(isContain(list_1, list_2[index])){
       result.push(list_2[index]);
     }
   }
+  return extractUniqe(result);
+}
+
+const findDifference = function(list_1, list_2){
+  let result = [];
+  for(let index = 0; index < list_1.length; index++){
+    if(!isContain(list_2, list_1[index])){
+      result.push(list_1[index]);
+    }
+  }
+  return result;
+}
+
+const isSubset = function(list, subset){
+  let result = true;
+  for(let index = 0; index < subset.length; index++){
+    if(!isContain(list, subset[index])){
+      result = false;
+    }
+  }  
   return result;
 }
 
@@ -285,3 +301,6 @@ exports.arrayPartition = arrayPartition;
 exports.unionArray = unionArray;
 exports.zipElemets = zipElemets;
 exports.intersectArray = intersectArray;
+
+exports.findDifference = findDifference;
+exports.isSubset = isSubset;
