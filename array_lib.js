@@ -47,53 +47,35 @@ const addTwoNumbers = function(a,b){
 }
 
 const findSumOfNumberList = function(list){
-  let sum = 0;
-  for(let index =0; index <list.length; index++){
-    sum = sum + list[index];
-  }
-  return sum;
+  return list.reduce(addTwoNumbers);
 }
 
 const extractAlternateNumbers = function(list){
-  let alternateList = [];
-  for(let index = 0; index < list.length; index += 2){
-    alternateList.push(list[index]);
-  }
-  return alternateList;
+  return list.filter(function(element,index){
+    return index % 2 == 0;
+  });
 }
 
 const findMaxOfList = function(list){
-  let max = list[0];
-  for(let index = 1; index <list.length; index++){
-    if(max < list[index]){
-      max = list[index]
-    }
-  }
-  return max;
+  return list.reduce(function(a,b){
+    return Math.max(a,b);
+  });
 }
 
 const findMinOfList = function(list){
-  let min = list[0];
-  for(let index = 1; index <list.length; index++){
-    if(min > list[index]){
-      min = list[index]
-    }
-  }
-  return min;
+  return list.reduce(function(a,b){
+    return Math.min(a,b);
+  });
 }
 
 const findAverage = function(list){
-  let sum = findSumOfNumberList(list);
-  let average = sum / list.length;
-  return average;
+  return list.reduce(addTwoNumbers) / list.length;
 }
 
 const mapLength = function(list){
-  let mappedList = [];
-  for(let index = 0; index < list.length; index++){
-    mappedList[index] = list[index].length;
-  }
-  return mappedList;
+  return list.map(function(element){
+    return element.length;
+  });
 }
 
 const countOddNumbers = function(list){
