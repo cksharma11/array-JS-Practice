@@ -264,15 +264,10 @@ const isSubset = function(list, subset){
 }
 
 const rotateArray = function(list, num){
-  let indexOfNum = findIndex(list, num) +1;
-  let rotatedArray = [];
-  for(let index = indexOfNum; index < list.length; index++){
-    rotatedArray.push(list[index]);
+  for(let index = 0; index < num; index++){
+    list.push(list.shift());
   }
-  for(let index = 0; index < indexOfNum; index++){
-    rotatedArray.push(list[index]);
-  }
-  return rotatedArray;
+  return list;
 }
 
 exports.generateFibSeries = generateFibSeries;
