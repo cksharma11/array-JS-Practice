@@ -89,29 +89,21 @@ const countEvenNumbers = function(list){
 }
 
 const countNumbersAboveThreshold = function(list, threshold){
-    let count = 0;
-    for(let index = 0; index < list.length; index++){
-      if(list[index] > threshold)
-        count++;
-    }
-  return count;
+  let count = list.filter(function(a){
+    return a > threshold;
+  });
+  return count.length;
 }
 
 const countNumbersBelowThreshold = function(list, threshold){
-    let count = 0;
-    for(let index = 0; index < list.length; index++){
-      if(list[index] < threshold)
-        count++;
-    }
-  return count;
+  let count = list.filter(function(a){
+    return a < threshold;
+  });
+  return count.length;
 }
 
 const findIndex = function(list, number){
-  for(let index = 0; index < list.length; index++){
-    if(list[index] == number)
-      return index;
-  }
-  return -1;
+  return list.indexOf(number);
 }
 
 const swapWithNextIndex = function(list,index){
@@ -162,11 +154,9 @@ const extractDigit = function(number){
 }
 
 const isContain = function(list, element){
-  for(let index = 0; index < list.length; index++){
-    if(list[index] == element)
-      return true;
-  }
-  return false;
+  return list.some(function(a){
+    return a == element;
+  });
 }
 
 const extractUniqe = function(list){
@@ -179,15 +169,13 @@ const extractUniqe = function(list){
 }
 
 const arrayPartition = function(list, limit){
-  let partitionedArray = [[], []];
-  sortInAscending(list);
-  for(let index in list) {
-    partitionedArray[1].push(list[index]);
-    if(limit >= list[index]) {
-      partitionedArray[0].push(list[index]);
-      partitionedArray[1].pop();
-    }
-  }
+  let partitionedArray = [0, 1];
+  partitionedArray[0] = list.filter(function(a){
+    return a <= limit;
+  });
+  partitionedArray[1] = list.filter(function(a){
+    return a > limit;
+  });
   return partitionedArray;
 }
 
