@@ -7,21 +7,11 @@ const isOdd = function(number){
 }
 
 const extractOddElements = function(list){
-  let listOfOddNumbers = [];
-  for(let index = 0; index < list.length; index++){
-    if(isOdd(list[index]))
-      listOfOddNumbers.push(list[index]);
-  }
-  return listOfOddNumbers;
+   return list.filter(isOdd);
 }
 
 const extractEvenElements = function(list){
-  let listOfEvenNumbers = [];
-  for(let index = 0; index < list.length; index++){
-    if(isEven(list[index]))
-      listOfEvenNumbers.push(list[index]);
-  }
-  return listOfEvenNumbers;
+   return list.filter(isEven);
 }
 
 const generateFibSeries = function(nthTerm){
