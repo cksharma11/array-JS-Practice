@@ -106,31 +106,14 @@ const findIndex = function(list, number){
   return list.indexOf(number);
 }
 
-const swapWithNextIndex = function(list,index){
-  let temp = list[index];
-  list[index] = list[index+1];
-  list[index+1] = temp;
-}
-
 const sortInAscending = function(list){
-  for(let row = 0; row < list.length; row++){
-    for(let col = 0; col < list.length-row; col++){
-      if(list[col] > list[col+1])
-        swapWithNextIndex(list, col);
-    }
-  }
-  return list;
+  return list.sort(function(a,b){
+    return a-b;
+  });
 }
 
 const sortInDescending = function(list){
-  for(let row = 0; row < list.length; row++){
-    for(let col = 0; col < list.length-row; col++){
-      if(list[col] < list[col+1]){
-        swapWithNextIndex(list, col);
-      }
-    }
-  }
-  return list;
+  return sortInAscending(list).reverse();
 }
 
 const isAscending = function(list){
@@ -154,8 +137,8 @@ const extractDigit = function(number){
 }
 
 const isContain = function(list, element){
-  return list.some(function(a){
-    return a == element;
+  return list.some(function(num){
+    return num == element;
   });
 }
 
