@@ -15,14 +15,13 @@ const extractEvenElements = function(list){
 }
 
 const generateFibSeries = function(lastTerm){
-  let term_1 = -1;
+  let term_1 = 0;
   let term_2 = 1;
   let fibSeries = [];
   for(let index=0; index < lastTerm; index++){
-    let nextTerm = term_1 + term_2;
+    fibSeries[index] = term_1;
     term_1 = term_2;
-    term_2 = nextTerm;
-    fibSeries[index] = nextTerm;
+    term_2 = term_1 + fibSeries[index];
   }
   return fibSeries;
 }
@@ -138,13 +137,16 @@ const isContain = function(list, element){
   });
 }
 
-const extractUniqe = function(list){
-  let uniqeList = [];
-  for(let index = 0; index < list.length; index++){
-    if(!isContain(uniqeList, list[index]))
-      uniqeList.push(list[index]);
+const extractUniqeHelper = function(array, element){
+  if(array.includes(element)){
+    return array;
   }
-  return uniqeList;
+  array.push(element);
+  return array;
+}
+
+const extractUniqe = function(list){
+  return list.reduce(extractUniqeHelper,[]);
 }
 
 const arrayPartition = function(list, limit){
