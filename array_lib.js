@@ -27,7 +27,10 @@ const generateFibSeries = function(lastTerm){
 }
 
 const reverseSeries = function(series){
-  return series.reverse(); 
+  return series.reduce(function(result, element){
+    result.unshift(element);
+    return result;
+  },[]); 
 }
 
 const splitEvenOdd = function(list){
