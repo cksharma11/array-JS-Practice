@@ -14,25 +14,21 @@ const extractEvenElements = function(list){
    return list.filter(isEven);
 }
 
-const generateFibSeries = function(nthTerm){
-  let firstTerm = -1;
-  let secondTerm = 1;
+const generateFibSeries = function(lastTerm){
+  let term_1 = -1;
+  let term_2 = 1;
   let fibSeries = [];
-  for(let index=0; index < nthTerm; index++){
-    let nextTerm = firstTerm + secondTerm;
-    firstTerm = secondTerm;
-    secondTerm = nextTerm;
+  for(let index=0; index < lastTerm; index++){
+    let nextTerm = term_1 + term_2;
+    term_1 = term_2;
+    term_2 = nextTerm;
     fibSeries[index] = nextTerm;
   }
   return fibSeries;
 }
 
 const reverseSeries = function(series){
-  let reversedSeries = [];
-  for(let index = series.length-1; index >= 0; index--){
-    reversedSeries[series.length-1 - index] = series[index];
-  }
-  return reversedSeries;
+  return series.reverse(); 
 }
 
 const splitEvenOdd = function(list){
@@ -176,33 +172,21 @@ const zipElemets = function(list_1, list_2){
 }
 
 const intersectArray = function(list_1, list_2){
-  let result = [];
-  for(index in list_1){
-    if(isContain(list_1, list_2[index])){
-      result.push(list_2[index]);
-    }
-  }
-  return extractUniqe(result);
+  return list_1.filter(function(element){
+    return (list_2.includes(element));
+  });
 }
 
 const findDifference = function(list_1, list_2){
-  let result = [];
-  for(let index = 0; index < list_1.length; index++){
-    if(!isContain(list_2, list_1[index])){
-      result.push(list_1[index]);
-    }
-  }
-  return result;
+  return list_1.filter(function(element){
+    return !(list_2.includes(element));
+  });
 }
 
 const isSubset = function(list, subset){
-  let result = true;
-  for(let index = 0; index < subset.length; index++){
-    if(!isContain(list, subset[index])){
-      result = false;
-    }
-  }  
-  return result;
+  return subset.every(function(element){
+    return list.includes(element);
+  });
 }
 
 const rotateArray = function(list, num){
