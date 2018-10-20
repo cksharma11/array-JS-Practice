@@ -14,18 +14,6 @@ const extractEvenElements = function(list){
    return list.filter(isEven);
 }
 
-const generateFibSeries = function(lastTerm){
-  let term_1 = 0;
-  let term_2 = 1;
-  let fibSeries = [];
-  for(let index=0; index < lastTerm; index++){
-    fibSeries[index] = term_1;
-    term_1 = term_2;
-    term_2 = term_1 + fibSeries[index];
-  }
-  return fibSeries;
-}
-
 const reverseSeries = function(series){
   return series.reduce(function(result, element){
     result.unshift(element);
@@ -199,6 +187,18 @@ const rotateArray = function(list, num){
     list.push(list.shift());
   }
   return list;
+}
+
+const generateFibSeries = function(lastTerm){
+  let term_1 = 0;
+  let term_2 = 1;
+  let fibSeries = [];
+  for(let index=0; index < lastTerm; index++){
+    fibSeries[index] = term_1;
+    term_1 = term_2;
+    term_2 = term_1 + fibSeries[index];
+  }
+  return fibSeries;
 }
 
 exports.generateFibSeries = generateFibSeries;
