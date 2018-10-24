@@ -14,11 +14,13 @@ const extractEvenElements = function(list){
    return list.filter(isEven);
 }
 
+const reverseSeriesHelper = function(result, element){
+  result.unshift(element);
+  return result;
+}
+
 const reverseSeries = function(series){
-  return series.reduce(function(result, element){
-    result.unshift(element);
-    return result;
-  },[]); 
+  return series.reduce(reverseSeriesHelper,[]); 
 }
 
 const splitEvenOdd = function(list){
@@ -36,32 +38,39 @@ const findSumOfNumberList = function(list){
   return list.reduce(addTwoNumbers);
 }
 
+const getAlternateElement = function(element, index){
+  return index % 2 == 0;
+}
+
 const extractAlternateNumbers = function(list){
-  return list.filter(function(element,index){
-    return index % 2 == 0;
-  });
+  return list.filter(getAlternateElement);
+}
+
+const findMax = function(a,b){
+  return Math.max(a,b);
 }
 
 const findMaxOfList = function(list){
-  return list.reduce(function(a,b){
-    return Math.max(a,b);
-  });
+  return list.reduce(findMax);
+}
+
+const findMin = function(a,b){
+  return Math.min(a,b);
 }
 
 const findMinOfList = function(list){
-  return list.reduce(function(a,b){
-    return Math.min(a,b);
-  });
+  return list.reduce(findMin);
 }
 
 const findAverage = function(list){
   return list.reduce(addTwoNumbers) / list.length;
 }
 
+const getLengthOfString = function(text){
+  return text.length;
+}
 const mapLength = function(list){
-  return list.map(function(element){
-    return element.length;
-  });
+  return list.map(getLengthOfString);
 }
 
 const countOddNumbers = function(list){
@@ -74,48 +83,64 @@ const countEvenNumbers = function(list){
   return evenElements.length;
 }
 
+const getThresholdData = function(list,element){
+  let {threshold} = list;
+  if(element > threshold){
+    list.elementAboveLimit.push(element);
+    return list;
+  }
+  if(element < threshold)
+  list.elementsBelowLimit.push(element);
+  return list;
+}
+
 const countNumbersAboveThreshold = function(list, threshold){
-  let count = list.filter(function(a){
-    return a > threshold;
+  let count = list.reduce(getThresholdData,{threshold: threshold, 
+    elementAboveLimit: [],
+    elementsBelowLimit: []
   });
-  return count.length;
+  return count.elementAboveLimit.length;
 }
 
 const countNumbersBelowThreshold = function(list, threshold){
-  let count = list.filter(function(a){
-    return a < threshold;
+  let count = list.reduce(getThresholdData,{threshold: threshold, 
+    elementAboveLimit: [],
+    elementsBelowLimit: []
   });
-  return count.length;
+  return count.elementsBelowLimit.length;
 }
 
 const findIndex = function(list, number){
   return list.indexOf(number);
 }
 
+const sortInAscendingHelper = function(a,b){
+  return a-b;
+}
+
 const sortInAscending = function(list){
-  return list.sort(function(a,b){
-    return a-b;
-  });
+  return list.sort(sortInAscendingHelper);
 }
 
 const sortInDescending = function(list){
   return sortInAscending(list).reverse();
 }
 
+const getOrder = function(list, element){
+  list.isAscending = (list.prevElement <= element && list.isAscending );
+  list.isDescending = (list.prevElement >= element && list.isDescending );
+  list.prevElement = element;
+  return list;
+}
+
 const isAscending = function(list){
-  for(let index =0; index < list.length-1; index++){
-    if(list[index] > list[index +1])
-      return false;
-  }
-  return true;
+  let result = list.reduce(getOrder, {prevElement: list[0], isAscending: true, isDescending: true});
+  return result.isAscending;
 }
 
 const isDescending = function(list){
-  for(let index = 0; index < list.length-1; index++){
-    if(list[index] < list[index+1])
-      return false;
-  }
-  return true;
+  let result = list.reduce(getOrder, {prevElement: list[0], isAscending: true, isDescending: true});
+  return result.isDescending;
 }
 
 const extractDigit = function(number){
@@ -123,9 +148,7 @@ const extractDigit = function(number){
 }
 
 const isContain = function(list, element){
-  return list.some(function(num){
-    return num == element;
-  });
+  return list.includes(element);
 }
 
 const extractUniqeHelper = function(array, element){
@@ -140,15 +163,18 @@ const extractUniqe = function(list){
   return list.reduce(extractUniqeHelper,[]);
 }
 
+const divideArray = function(list,element){
+  if(element > list.limit){
+    list.partition[1].push(element);
+    return list;
+  }
+  list.partition[0].push(element);
+  return list;
+}
+
 const arrayPartition = function(list, limit){
-  let partitionedArray = [0, 1];
-  partitionedArray[0] = list.filter(function(a){
-    return a <= limit;
-  });
-  partitionedArray[1] = list.filter(function(a){
-    return a > limit;
-  });
-  return partitionedArray;
+  let count = list.reduce(divideArray,{limit: limit, partition: [[],[]]});
+  return count.partition;
 }
 
 const unionArray = function(list_1, list_2){
@@ -164,22 +190,36 @@ const zipElemets = function(list_1, list_2){
   return zippedList;
 }
 
+const getIntersectionAndDiff = function(list,element){
+  if(list.list.includes(element)){
+    list.intersection.push(element);
+    return list;
+  }
+  list.difference.push(element);
+  return list;
+}
+
 const intersectArray = function(list_1, list_2){
-  return list_1.filter(function(element){
-    return (list_2.includes(element));
-  });
+  return list_1.reduce(getIntersectionAndDiff,
+    {
+      list:list_2, intersection: [], difference: []
+    }).intersection;
 }
 
 const findDifference = function(list_1, list_2){
-  return list_1.filter(function(element){
-    return !(list_2.includes(element));
-  });
+  return list_1.reduce(getIntersectionAndDiff,
+    {
+      list:list_2, intersection: [], difference: []
+    }).difference;
+}
+
+const isSubsetHelper = function(list, element){
+  list.isSubset = (list.set.includes(element) && list.isSubset);
+  return list;
 }
 
 const isSubset = function(list, subset){
-  return subset.every(function(element){
-    return list.includes(element);
-  });
+  return subset.reduce(isSubsetHelper,{isSubset: true, set: list}).isSubset;
 }
 
 const rotateArray = function(list, num){
