@@ -3,7 +3,7 @@ const lib = require("./array_lib.js");
 
 const generateFibSeries = lib.generateFibSeries;
 const reverseSeries = lib.reverseSeries;
-const splitEvenOdd = lib.splitEvenOdd;
+const splitEvenOddNumbers = lib.splitEvenOddNumbers;
 const findSumOfNumberList = lib.findSumOfNumberList;
 const addTwoNumbers = lib.addTwoNumbers;
 const extractAlternateNumbers = lib.extractAlternateNumbers;
@@ -11,8 +11,8 @@ const findMaxOfList = lib.findMaxOfList;
 const findMinValueInList = lib.findMinValueInList;
 const isEven = lib.isEven;
 const isOdd = lib.isOdd;
-const extractEvenElements = lib.extractEvenElements;
-const extractOddElements = lib.extractOddElements;
+const extractEvenNumbers = lib.extractEvenNumbers;
+const extractOddNumbers = lib.extractOddNumbers;
 const mapLength = lib.mapLength;
 const countEvenNumbers = lib.countEvenNumbers;
 const countOddNumbers = lib.countOddNumbers; 
@@ -51,14 +51,14 @@ assert.deepEqual(reverseSeries([0]), [0]);
 assert.deepEqual(reverseSeries([1,2]), [2,1]);
 assert.deepEqual(reverseSeries([-1,-5,5,32]), [32,5,-5,-1]);
 
-/*---------- Test for split splitEvenOdd ----------*/
+/*---------- Test for split splitEvenOddNumbers ----------*/
 
 //for empty array and 1 even value
-assert.deepEqual(splitEvenOdd([]),[[],[]]);
-assert.deepEqual(splitEvenOdd([2]),[[2],[]]);
+assert.deepEqual(splitEvenOddNumbers([]),[[],[]]);
+assert.deepEqual(splitEvenOddNumbers([2]),[[2],[]]);
 //for negetive values and all odd
-assert.deepEqual(splitEvenOdd([-1,-2,-3,-5]),[[-2],[-1,-3,-5]]);
-assert.deepEqual(splitEvenOdd([]),[[],[]]);
+assert.deepEqual(splitEvenOddNumbers([-1,-2,-3,-5]),[[-2],[-1,-3,-5]]);
+assert.deepEqual(splitEvenOddNumbers([]),[[],[]]);
 
 /*---------- Test for findSumOfNumberList ----------*/
 
@@ -118,27 +118,27 @@ assert.equal(isOdd(1), true);
 assert.equal(isOdd(-11), true);
 assert.equal(isOdd(12), false);
 
-/*----------- Test for extractEvenElements ---------------*/
+/*----------- Test for extractEvenNumbers ---------------*/
 
-assert.deepEqual(extractEvenElements([1]),[]);
-assert.deepEqual(extractEvenElements([0]),[0]);
+assert.deepEqual(extractEvenNumbers([1]),[]);
+assert.deepEqual(extractEvenNumbers([0]),[0]);
 
-assert.deepEqual(extractEvenElements([1,2]),[2]);
-assert.deepEqual(extractEvenElements([1,2,3,4]),[2,4]);
+assert.deepEqual(extractEvenNumbers([1,2]),[2]);
+assert.deepEqual(extractEvenNumbers([1,2,3,4]),[2,4]);
 
-assert.deepEqual(extractEvenElements([-1,-2]),[-2]);
-assert.deepEqual(extractEvenElements([1,-12]),[-12]);
+assert.deepEqual(extractEvenNumbers([-1,-2]),[-2]);
+assert.deepEqual(extractEvenNumbers([1,-12]),[-12]);
 
-/*----------- Test for extractOddElements ---------------*/
+/*----------- Test for extractOddNumbers ---------------*/
 
-assert.deepEqual(extractOddElements([1]),[1]);
-assert.deepEqual(extractOddElements([0]),[]);
+assert.deepEqual(extractOddNumbers([1]),[1]);
+assert.deepEqual(extractOddNumbers([0]),[]);
 
-assert.deepEqual(extractOddElements([1,2]),[1]);
-assert.deepEqual(extractOddElements([1,2,3,4]),[1,3]);
+assert.deepEqual(extractOddNumbers([1,2]),[1]);
+assert.deepEqual(extractOddNumbers([1,2,3,4]),[1,3]);
 
-assert.deepEqual(extractOddElements([-1,-2]),[-1]);
-assert.deepEqual(extractOddElements([1,-12]),[1]);
+assert.deepEqual(extractOddNumbers([-1,-2]),[-1]);
+assert.deepEqual(extractOddNumbers([1,-12]),[1]);
 
 /*----------- Test for mapLength ---------------*/
 

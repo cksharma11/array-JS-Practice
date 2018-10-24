@@ -6,11 +6,11 @@ const isOdd = function(number){
   return Math.abs(number % 2) == 1;
 };
 
-const extractOddElements = function(list){
+const extractOddNumbers = function(list){
    return list.filter(isOdd);
 };
 
-const extractEvenElements = function(list){
+const extractEvenNumbers = function(list){
    return list.filter(isEven);
 };
 
@@ -23,10 +23,10 @@ const reverseSeries = function(series){
   return series.reduce(reverseSeriesHelper,[]); 
 };
 
-const splitEvenOdd = function(list){
+const splitEvenOddNumbers = function(list){
   let evenOddList = [0,1];
-  evenOddList[0] = extractEvenElements(list);
-  evenOddList[1] = extractOddElements(list);
+  evenOddList[0] = extractEvenNumbers(list);
+  evenOddList[1] = extractOddNumbers(list);
   return evenOddList;  
 };
 
@@ -74,12 +74,12 @@ const mapLength = function(list){
 };
 
 const countOddNumbers = function(list){
-  let oddElements = extractOddElements(list);
+  let oddElements = extractOddNumbers(list);
   return oddElements.length;
 };
 
 const countEvenNumbers = function(list){
-  let evenElements = extractEvenElements(list);
+  let evenElements = extractEvenNumbers(list);
   return evenElements.length;
 };
 
@@ -95,10 +95,12 @@ const getThresholdData = function(list,element){
 };
 
 const countNumbersAboveThreshold = function(list, threshold){
-  let count = list.reduce(getThresholdData,{threshold: threshold, 
-    elementAboveLimit: [],
-    elementsBelowLimit: []
-  });
+  let count = list.reduce(getThresholdData,
+    {
+      threshold: threshold, 
+      elementAboveLimit: [],
+      elementsBelowLimit: []
+    });
   return count.elementAboveLimit.length;
 };
 
@@ -134,12 +136,22 @@ const getOrder = function(list, element){
 };
 
 const isAscending = function(list){
-  let result = list.reduce(getOrder, {prevElement: list[0], isAscending: true, isDescending: true});
+  let result = list.reduce(getOrder, 
+    {
+      prevElement: list[0], 
+      isAscending: true, 
+      isDescending: true
+    });
   return result.isAscending;
 };
 
 const isDescending = function(list){
-  let result = list.reduce(getOrder, {prevElement: list[0], isAscending: true, isDescending: true});
+  let result = list.reduce(getOrder, 
+    {
+      prevElement: list[0], 
+      isAscending: true, 
+      isDescending: true
+    });
   return result.isDescending;
 };
 
@@ -173,7 +185,11 @@ const divideArray = function(list,element){
 };
 
 const arrayPartition = function(list, limit){
-  let count = list.reduce(divideArray,{limit: limit, partition: [[],[]]});
+  let count = list.reduce(divideArray,
+    {
+      limit: limit, 
+      partition: [[],[]]
+    });
   return count.partition;
 };
 
@@ -202,7 +218,9 @@ const getIntersectionAndDiff = function(list,element){
 const intersectArray = function(list_1, list_2){
   return list_1.reduce(getIntersectionAndDiff,
     {
-      list:list_2, intersection: [], difference: []
+      list:list_2, 
+      intersection: [], 
+      difference: []
     }).intersection;
 };
 
@@ -219,7 +237,11 @@ const isSubsetHelper = function(list, element){
 };
 
 const isSubset = function(list, subset){
-  return subset.reduce(isSubsetHelper,{isSubset: true, set: list}).isSubset;
+  return subset.reduce(isSubsetHelper,
+    {
+      isSubset: true, 
+      set: list
+    }).isSubset;
 };
 
 const rotateArray = function(list, num){
@@ -243,7 +265,7 @@ const generateFibSeries = function(lastTerm){
 
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
-exports.splitEvenOdd = splitEvenOdd;
+exports.splitEvenOddNumbers = splitEvenOddNumbers;
 
 exports.addTwoNumbers = addTwoNumbers;
 exports.findSumOfNumberList = findSumOfNumberList;
@@ -255,9 +277,9 @@ exports.findAverage = findAverage;
 
 exports.isEven = isEven;
 exports.isOdd = isOdd;
-exports.extractEvenElements = extractEvenElements;
+exports.extractEvenNumbers = extractEvenNumbers;
 
-exports.extractOddElements = extractOddElements;
+exports.extractOddNumbers = extractOddNumbers;
 exports.mapLength = mapLength;
 exports.countEvenNumbers = countEvenNumbers;
 
