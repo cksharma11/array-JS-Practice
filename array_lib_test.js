@@ -25,7 +25,7 @@ const extractDigit = lib.extractDigit;
 const isAscending = lib.isAscending;
 const isDescending = lib.isDescending;
 const extractUniqe = lib.extractUniqe;
-const arrayPartition = lib.arrayPartition; 
+const listPartition = lib.listPartition; 
 const unionArray = lib.unionArray;
 const zipElemets = lib.zipElemets;
 const intersectArray = lib.intersectArray;
@@ -53,7 +53,7 @@ assert.deepEqual(reverseSeries([-1,-5,5,32]), [32,5,-5,-1]);
 
 /*---------- Test for split splitEvenOddNumbers ----------*/
 
-//for empty array and 1 even value
+//for empty list and 1 even value
 assert.deepEqual(splitEvenOddNumbers([]),[[],[]]);
 assert.deepEqual(splitEvenOddNumbers([2]),[[2],[]]);
 //for negetive values and all odd
@@ -76,7 +76,7 @@ assert.equal(addTwoNumbers(0,0),0);
 
 /*----------- Test for addTwoNumbers ---------------*/
 
-//for empty and 1 element array
+//for empty and 1 element list
 assert.deepEqual(extractAlternateNumbers([]),[]);
 assert.deepEqual(extractAlternateNumbers([1]),[1]);
 
@@ -234,13 +234,13 @@ assert.deepEqual(extractUniqe([1,1,2,2]),[1,2]);
 assert.deepEqual(extractUniqe([1,2,1,1]),[1,2]);
 assert.deepEqual(extractUniqe([1,12,14,4]),[1,12,14,4]);
 
-/*-------------- Test for arrayPartition ---------------*/
+/*-------------- Test for listPartition ---------------*/
 
-assert.deepEqual(arrayPartition([1,2,3],2),[[1,2],[3]])
-assert.deepEqual(arrayPartition([-1,0,1],0),[[-1,0],[1]])
+assert.deepEqual(listPartition([1,2,3],2),[[1,2],[3]])
+assert.deepEqual(listPartition([-1,0,1],0),[[-1,0],[1]])
 
-assert.deepEqual(arrayPartition([11,21,11,11],11),[[11,11,11],[21]])
-assert.deepEqual(arrayPartition([11,12,130],130),[[11,12,130],[]])
+assert.deepEqual(listPartition([11,21,11,11],11),[[11,11,11],[21]])
+assert.deepEqual(listPartition([11,12,130],130),[[11,12,130],[]])
 
 /*-------------- Test for unionArray ---------------*/
 

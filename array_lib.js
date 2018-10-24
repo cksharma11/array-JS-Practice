@@ -163,12 +163,12 @@ const isContain = function(list, element){
   return list.includes(element);
 };
 
-const extractUniqeHelper = function(array, element){
-  if(array.includes(element)){
-    return array;
+const extractUniqeHelper = function(list, element){
+  if(list.includes(element)){
+    return list;
   };
-  array.push(element);
-  return array;
+  list.push(element);
+  return list;
 };
 
 const extractUniqe = function(list){
@@ -184,7 +184,7 @@ const divideArray = function(list,element){
   return list;
 };
 
-const arrayPartition = function(list, limit){
+const listPartition = function(list, limit){
   let count = list.reduce(divideArray,
     {
       limit: limit, 
@@ -296,7 +296,7 @@ exports.isAscending = isAscending;
 
 exports.isDescending = isDescending;
 exports.extractUniqe = extractUniqe;
-exports.arrayPartition = arrayPartition;
+exports.listPartition = listPartition;
 
 exports.unionArray = unionArray;
 exports.zipElemets = zipElemets;
