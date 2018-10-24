@@ -159,7 +159,7 @@ const extractDigit = function(number){
   return number.toString().split("");
 };
 
-const isContain = function(list, element){
+const isElemetExists = function(list, element){
   return list.includes(element);
 };
 
@@ -251,17 +251,24 @@ const rotateArray = function(list, num){
   return list;
 };
 
-const generateFibSeries = function(lastTerm){
-  let term_1 = 0;
-  let term_2 = 1;
-  let fibSeries = [];
-  for(let index=0; index < lastTerm; index++){
-    fibSeries[index] = term_1;
-    term_1 = term_2;
-    term_2 = term_1 + fibSeries[index];
-  };
-  return fibSeries;
-};
+const generateFibHelper = function(list, element){
+  list.fibSeries[list.index] = list.term_1;
+  list.term_1 = list.term_2 + list.term_1;
+  list.term_2 = list.fibSeries[list.index++];
+  return list;
+}
+
+const generateFibSeries = function (length) { 
+  let list = new Array(length).fill(0);
+  let series = list.reduce(generateFibHelper, 
+    {
+      index:0, 
+      fibSeries: [], 
+      term_1:0, 
+      term_2:1 
+    });
+  return series.fibSeries;
+}
 
 exports.generateFibSeries = generateFibSeries;
 exports.reverseSeries = reverseSeries;
